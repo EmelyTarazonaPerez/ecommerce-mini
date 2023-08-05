@@ -7,4 +7,9 @@ import { Component, Input} from '@angular/core';
 })
 export class NavbarComponent {
 @Input() title: string = ''
+@Input() color: string = ''
+
+changeColorText(){
+  return this.color
+}
 }
