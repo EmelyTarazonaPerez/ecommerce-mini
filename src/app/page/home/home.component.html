@@ -1,0 +1,8 @@
+<h3 class="mt-4">Select product</h3>
+<app-checkbox (evento)="arreglo($event)" style="display: flex;"></app-checkbox>
+<div *ngIf="productsFiltros.length===0" class="contenedor-grid">
+  <app-product [product]="product" *ngFor="let product of products"></app-product>
+</div>
+<div *ngIf="productsFiltros.length>0" class="contenedor-grid">
+  <app-product [product]="product" *ngFor="let product of productsFiltros"></app-product>
+</div>

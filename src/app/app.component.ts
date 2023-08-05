@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Product } from './models/products.model'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'firstProjectAngular';
+  title = 'Mini ecommerce';
+  http = inject(HttpClient)
+  products: Product[] = [];
+  productsFiltros: Product[] =[];
+
+  ngOnInit() {
+
+  }
+
+
+
 }
