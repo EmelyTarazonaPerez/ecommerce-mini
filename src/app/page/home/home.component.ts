@@ -11,16 +11,20 @@ export class HomeComponent {
   title = 'Mini ecommerce';
   http = inject(HttpClient)
   products: Product[] = [];
-  productsFiltros: Product[] =[];
+  productsFiltros: Product[] = [];
+  detail: Product[] = [];
 
-  ngOnInit() {
+
+  ngOnInit():void {
     this.http.get<Product[]>('http://localhost:5000/api/v1/products')
       .subscribe((data) => {
         this.products = data;
       });
   }
 
-  arreglo(data:any[]): void{
+  arreglo(data: any[]): void {
     this.productsFiltros = this.products.filter(item => data.includes(item.filtro))
   }
+
+
 }
