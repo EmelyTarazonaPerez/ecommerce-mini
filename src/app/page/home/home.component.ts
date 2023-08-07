@@ -1,30 +1,26 @@
-import { Component, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, inject } from '@angular/core';
 import { Product } from '../../models/products.model'
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor(private dataService: DataService) { }
+
   title = 'Mini ecommerce';
-  http = inject(HttpClient)
-  products: Product[] = [];
+  product: Product[] = [];
   productsFiltros: Product[] = [];
-  detail: Product[] = [];
 
-
-  ngOnInit():void {
-    this.http.get<Product[]>('http://localhost:5000/api/v1/products')
-      .subscribe((data) => {
-        this.products = data;
-      });
+  ngOnInit() {
+    this.dataService.getProduct().subscribe((data) => {
+      this.product = data;
+    })
   }
 
   arreglo(data: any[]): void {
-    this.productsFiltros = this.products.filter(item => data.includes(item.filtro))
+    this.productsFiltros = this.product.filter(item => data.includes(item.filtro))
   }
-
-
 }

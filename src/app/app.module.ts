@@ -12,12 +12,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-
-
+import { BottomCartComponent } from './components/bottom-cart/bottom-cart.component';
+import { CartComponent } from './page/cart/cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
 const appRoutes: Routes = [
 
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'cart', component: CartComponent },
   { path: 'detail/:id', component: DetailComponent }
 
 ];
@@ -31,14 +34,18 @@ const appRoutes: Routes = [
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    DetailComponent
+    DetailComponent,
+    BottomCartComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
