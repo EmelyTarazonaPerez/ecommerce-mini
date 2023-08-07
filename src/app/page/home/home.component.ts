@@ -25,6 +25,4 @@ export class HomeComponent {
   arreglo(data: any[]): void {
     this.productsFiltros = this.products.filter(item => data.includes(item.filtro))
   }
-
-
 }
