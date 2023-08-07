@@ -1,1 +1,27 @@
-<p>detail works!</p>
+<app-navbar></app-navbar>
+<div class="container mt-4">
+
+  <div class="card mb-3 " >
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{products[0].imagen}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h1 class="card-title">{{products[0].nombre}}</h1>
+          <h2 class="card-text">$ {{products[0].precio}}</h2>
+          <p class="card-text">Available: {{products[0].cantidad}}</p>
+          <h3>Specifications</h3>
+          <ul class="list-group list-group-flush" style="width: 45%;">
+            <li class="list-group-item">Color: {{products[0].detalle.Color}} </li>
+            <li class="list-group-item">Marca: {{products[0].detalle.Marca}} </li>
+            <li class="list-group-item">Garantia {{products[0].detalle.Garantia}}</li>
+          </ul>
+          <p>{{products[0].descripcion}}</p>
+          <button type="button" class="btn btn-primary me-2">Send to cart</button>
+          <button type="button" class="btn btn-dark">Pay</button>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -3,7 +3,7 @@
   <div class="card-body">
     <h5 class="card-title">{{product.nombre}}</h5>
     <p class="card-text">{{product.precio}}</p>
-    <a href="/detail" class="btn btn-primary">details</a>
+    <a [routerLink]="['/detail',product.Id_producto]" class="btn btn-primary">details</a>
   </div>
 </div>
 

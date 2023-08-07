@@ -4,12 +4,4 @@ export interface Product {
   precio: number;
   imagen: string;
   filtro: string;
-  cantidad: number;
-  detalle: {
-    Color: string,
-    Marca: string,
-    Garantia: string
-  };
-  descripcion: string
-
 }

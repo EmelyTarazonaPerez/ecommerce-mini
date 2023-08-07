@@ -9,14 +9,4 @@ import { Product } from './models/products.model'
 })
 export class AppComponent {
   title = 'Mini ecommerce';
-  http = inject(HttpClient)
-  products: Product[] = [];
-  productsFiltros: Product[] =[];
-
-  ngOnInit() {
-
-  }
-
-
-
 }
