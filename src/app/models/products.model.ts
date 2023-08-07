@@ -11,5 +11,4 @@ export interface Product {
     Garantia: string
   };
   descripcion: string
-
 }
