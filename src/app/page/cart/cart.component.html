@@ -34,7 +34,7 @@
           <p class="col-6">Total a pagar</p>
           <p class="col-6">$ {{precioUnid}}</p>
         </div>
-        <button type="button" class="btn btn-dark" (click)="pagarMetodo()">Pay</button>
+        <button type="button" [disabled]="property" class="btn btn-dark" (click)="pagarMetodo()">Pay</button>
       </div>
     </div>
   </div>

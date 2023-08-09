@@ -16,11 +16,13 @@ import { BottomCartComponent } from './components/bottom-cart/bottom-cart.compon
 import { CartComponent } from './page/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginComponent } from './page/login/login.component';
 const appRoutes: Routes = [
 
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'login', component:  LoginComponent},
   { path: 'detail/:id', component: DetailComponent }
 
 ];
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     AboutComponent,
     DetailComponent,
     BottomCartComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
