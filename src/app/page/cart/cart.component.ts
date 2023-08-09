@@ -10,6 +10,7 @@ import { ModeloCart } from 'src/app/models/cart.modelo';
 
 export class CartComponent {
 
+  property = 'false'
   dataCart!: ModeloCart[]
   precioUnid: number = 0
   constructor(private serviceData: DataService) { }
