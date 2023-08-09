@@ -10,10 +10,10 @@ export class CheckboxComponent {
   @Output() evento = new EventEmitter<any[]>();
   filtro: any[] = []
   categories: Category[] = [
-    { id: 1, name: 'tecnologia' },
-    { id: 1, name: 'ropa' },
-    { id: 1, name: 'accesorios' },
-    { id: 1, name: 'muebles' }
+    { id: 1, name: 'technology' },
+    { id: 1, name: 'clothes' },
+    { id: 1, name: 'furnite' },
+    { id: 1, name: 'accessories' }
   ]
 
   verificar(item: string): void {

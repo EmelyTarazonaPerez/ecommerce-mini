@@ -6,9 +6,9 @@ export interface Product {
   filtro: string;
   cantidad: number;
   detalle: {
-    Color: string,
-    Marca: string,
-    Garantia: string
+    color: string,
+    drand: string,
+    warranty: string
   };
   descripcion: string
 }

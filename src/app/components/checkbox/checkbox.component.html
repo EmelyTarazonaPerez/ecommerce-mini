@@ -1,4 +1,5 @@
-<div class="form-check me-4" *ngFor="let item of categories; let i = index ">
+<h3 class="select-produc">Select product</h3>
+<div class="form-check" *ngFor="let item of categories; let i = index ">
   <input type="checkbox" class="form-check-input" id="categoryCheck{{i}}" [value]="item.name" (click)="verificar(item.name)"/>
   <label class="form-check-label" for="btn-check-{{i}}">{{item.name}}</label>
 </div>

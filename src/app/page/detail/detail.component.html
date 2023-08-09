@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container mt-4">
-
-  <div class="card mb-3 " >
+  <div class="mb-3" >
     <div class="row g-0">
       <div class="col-md-4">
         <img src="{{product[0].imagen}}" class="img-fluid rounded-start" alt="...">
@@ -13,9 +12,9 @@
           <p class="card-text">Available: {{product[0].cantidad}}</p>
           <h3>Specifications</h3>
           <ul class="list-group list-group-flush" style="width: 45%;">
-            <li class="list-group-item">Color: {{product[0].detalle.Color}} </li>
-            <li class="list-group-item">Marca: {{product[0].detalle.Marca}} </li>
-            <li class="list-group-item">Garantia {{product[0].detalle.Garantia}}</li>
+            <li class="list-group-item">Color: {{product[0].detalle.color}} </li>
+            <li class="list-group-item">Drand: {{product[0].detalle.drand}} </li>
+            <li class="list-group-item">Warranty {{product[0].detalle.warranty}}</li>
           </ul>
           <p>{{product[0].descripcion}}</p>
           <app-bottom-cart  [product]="product" ></app-bottom-cart>
