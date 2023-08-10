@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   arreglo(data: any[]): void {
-    this.productsFiltros = this.product.filter(item => data.includes(item.filtro) || data[0] == item.nombre.toLowerCase())
+    this.productsFiltros = this.product.filter(item => data.includes(item.filtro) || item.nombre.toLowerCase().includes(data[0].toLowerCase()))
     console.log(data)
     console.log(this.productsFiltros)
   }
