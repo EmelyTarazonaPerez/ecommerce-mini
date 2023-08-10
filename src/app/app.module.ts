@@ -17,6 +17,7 @@ import { CartComponent } from './page/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './page/login/login.component';
+import { SearchComponent } from './components/search/search.component';
 const appRoutes: Routes = [
 
   { path: '', component: HomeComponent },
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     DetailComponent,
     BottomCartComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
