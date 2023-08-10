@@ -11,9 +11,9 @@ export class CheckboxComponent {
   filtro: any[] = []
   categories: Category[] = [
     { id: 1, name: 'technology' },
-    { id: 2, name: 'clothes' },
-    { id: 3, name: 'furniture' },
-    { id: 4, name: 'accessories' }
+    { id: 1, name: 'clothes' },
+    { id: 1, name: 'furniture' },
+    { id: 1, name: 'accessories' }
   ]
 
   verificar(item: string): void {
