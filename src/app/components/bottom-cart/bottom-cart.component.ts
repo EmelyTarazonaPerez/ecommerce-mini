@@ -9,11 +9,14 @@ import { DataService } from 'src/app/page/data.service';
   styleUrls: ['./bottom-cart.component.css']
 })
 export class BottomCartComponent {
-  @Input() product!: Product[];
-  dataCart!:ModeloCart
-  constructor(private dataService: DataService) { }
 
-  ngOnInit() {
+  dataCart!: ModeloCart
+  product!: Product[]
+
+  @Input('product')
+  set changeProduct(product: Product[]) {
+    this.product = product
+    //code
     this.dataCart = {
       imagen: this.product[0].imagen,
       nombre: this.product[0].nombre,
@@ -22,13 +25,17 @@ export class BottomCartComponent {
       idusuario: 1,
       idproducto: this.product[0].Id_producto
     }
-    return this.dataCart
+  };
+
+  constructor(private dataService: DataService) {
   }
+
+  ngOnInit() {}
 
   enviarACart() {
     alert('su producto ya fue enviado a carritos')
     console.log(this.dataCart)
-    this.dataService.postCart(this.dataCart).subscribe( data => console.log(data))
+    this.dataService.postCart(this.dataCart).subscribe(data => console.log(data))
   }
 
 }

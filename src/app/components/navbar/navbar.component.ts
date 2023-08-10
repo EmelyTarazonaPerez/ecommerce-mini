@@ -1,4 +1,5 @@
-import { Component, Input} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Category } from 'src/app/models/categories.model';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,27 @@ import { Component, Input} from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-@Input() title: string = ''
-@Input() color: string = ''
+  @Input() title: string = ''
+  @Input() color: string = ''
+  @Output() evento = new EventEmitter<any[]>();
 
-changeColorText(){
-  return this.color
-}
+  filtro: any[] = []
+  categories: Category[] = [
+    { id: 1, name: 'technology' },
+    { id: 1, name: 'clothes' },
+    { id: 1, name: 'furniture' },
+    { id: 1, name: 'accessories' }
+  ]
+  changeColorText() {
+    return this.color
+  }
+  verificar(item: string): void {
+    if (this.filtro.indexOf(item) === -1) {
+      this.filtro.push(item)
+    } else {
+      this.filtro.splice(this.filtro.indexOf(item), 1)
+    }
+    this.evento.emit(this.filtro)
+  }
+
 }

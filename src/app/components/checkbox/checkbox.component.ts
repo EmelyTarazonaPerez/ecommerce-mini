@@ -12,7 +12,7 @@ export class CheckboxComponent {
   categories: Category[] = [
     { id: 1, name: 'technology' },
     { id: 1, name: 'clothes' },
-    { id: 1, name: 'furnite' },
+    { id: 1, name: 'furniture' },
     { id: 1, name: 'accessories' }
   ]
 
