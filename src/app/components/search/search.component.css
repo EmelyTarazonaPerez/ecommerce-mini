@@ -1,10 +1,9 @@
-.input-wrapper {
-  position: relative;
-  width: 271px;
-}
+
 
 input {
   padding-left: 50px;
+  border-color: #0d6efd;
+  border: 2px solid #0d6efd;
 }
 .input-icon {
   color: #191919;
@@ -14,4 +13,10 @@ input {
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+@media screen and (min-width:52.9em) {
+  .input-wrapper {
+    position: relative;
+  }
 }

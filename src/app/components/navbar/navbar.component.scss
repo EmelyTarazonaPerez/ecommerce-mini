@@ -1,0 +1,35 @@
+.slide-menu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: all ease-out .5s;
+  padding: 10px;
+  align-items: end;
+  &.active {
+    transform: translateX(-50%);
+  }
+}
+.form-check{
+  display: none;
+}
+
+.slide-menu .active {
+  transform: translateX(-50%) !important;
+}
+
+@media screen and (min-width:52.9em) {
+  .form-check{
+    display: flex;
+  }
+
+  .toggle-menu {
+    display: none;
+  }
+}
+

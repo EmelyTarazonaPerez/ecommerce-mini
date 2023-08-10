@@ -4,13 +4,14 @@ import { Category } from 'src/app/models/categories.model';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
   @Input() title: string = ''
   @Input() color: string = ''
   @Output() evento = new EventEmitter<any[]>();
 
+  activeMenu = false
   filtro: any[] = []
   categories: Category[] = [
     { id: 1, name: 'technology' },
@@ -20,6 +21,9 @@ export class NavbarComponent {
   ]
   changeColorText() {
     return this.color
+  }
+  toggeMenu(){
+    this.activeMenu = !this.activeMenu
   }
   verificar(item: string): void {
     if (this.filtro.indexOf(item) === -1) {
