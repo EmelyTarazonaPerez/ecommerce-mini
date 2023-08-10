@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {HomeComponent} from '../home/home.component'
 import { Product } from '../../models/products.model'
 import { HttpClient } from '@angular/common/http';
-import { DataService } from '../data.service';
+import { DataService } from '../../services/data.service';
 
 
 @Component({

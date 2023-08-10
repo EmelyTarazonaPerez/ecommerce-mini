@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DataService } from '../data.service';
 import { ModeloCart } from 'src/app/models/cart.modelo';
+import { DataCartService } from 'src/app/services/data-cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,15 +13,15 @@ export class CartComponent {
   property = 'false'
   dataCart!: ModeloCart[]
   precioUnid: number = 0
-  constructor(private serviceData: DataService) { }
+  constructor(private serviceDataCart: DataCartService) { }
 
   ngOnInit() {
-    this.serviceData.getCart().subscribe(data => {
+    this.serviceDataCart.getCart().subscribe(data => {
       return this.dataCart = data.filter(item => item.idusuario == 1)
     })
   }
 
-  pagarMetodo(){
+  pagarMetodo() {
     this.dataCart.forEach(element => {
       this.precioUnid = this.precioUnid + element.cantidad * element.precio
     });

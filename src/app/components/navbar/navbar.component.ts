@@ -22,7 +22,7 @@ export class NavbarComponent {
   changeColorText() {
     return this.color
   }
-  toggeMenu(){
+  toggeMenu() {
     this.activeMenu = !this.activeMenu
   }
   verificar(item: string): void {
