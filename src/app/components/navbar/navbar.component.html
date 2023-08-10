@@ -1,7 +1,13 @@
 <nav class="navbar bg-dark">
   <div class=" container container-fluid mt-2 mb-2">
-    <a class="text-light navbar-brand " href="#">
-      <h1>Mini ecommerce</h1>
+    <a class="text-light navbar-brand" href="#">
+      <div style="display: flex;">
+        <h1>Mini ecommerce</h1>
+        <div style="display: flex;" class="form-check" *ngFor="let item of categories; let i = index ">
+          <input type="checkbox" class="btn-check" id="btncheck{{i+1}}" [value]="item.name" (click)="verificar(item.name)"/>
+          <label class="btn btn-outline-primary" for="btncheck{{i+1}}">{{item.name}}</label>
+        </div>
+      </div>
     </a>
   </div>
 </nav>

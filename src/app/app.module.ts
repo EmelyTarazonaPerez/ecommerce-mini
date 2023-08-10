@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ProductComponent } from './components/product/product.component';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { CheckboxComponent } from './components/checkbox/checkbox.component'
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './page/home/home.component';
 import { AboutComponent } from './page/about/about.component';
@@ -33,7 +32,6 @@ const appRoutes: Routes = [
     AppComponent,
     ProductComponent,
     NavbarComponent,
-    CheckboxComponent,
     FooterComponent,
     HomeComponent,
     AboutComponent,
