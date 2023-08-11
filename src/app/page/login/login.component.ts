@@ -1,36 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.modelo';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  red: string = ''
-  message: string = ''
-  error: string = ''
+  messageError = {
+    red: '',
+    message: '',
+    error: '',
+  }
+
   login: User[] = [{
     gmail: '',
     password: ''
   }]
 
-  data: User[] = [
-    { gmail: 'paola@gmail.com', password: '1234' },
-    { gmail: 'karen@gmail.com', password: '1234' },
-    { gmail: 'nicolas@gmail.com', password: '1234' },
-  ]
+  dataLogin!: User[]
+
+  constructor(private dataService: DataService) { }
+
+  ngOnInit() {
+    this.dataService.getUser().subscribe(data => this.dataLogin = data)
+  }
 
   loginUser() {
-    let resp = this.data.filter(item => this.login.includes(item))
+    const resp = this.dataLogin.filter(item => this.login.includes(item))
     if (resp.length == 0) {
-      this.message = 'Invalid user ID and password combination'
-      this.error = '2px solid rgb(241, 98, 98)'
-      this.red = 'rgb(241, 98, 98)'
+      this.messageError.message = 'Invalid user ID and password combination'
+      this.messageError.error = '2px solid rgb(241, 98, 98)'
+      this.messageError.red = 'rgb(241, 98, 98)'
     } else {
-      this.message = ''
+      this.messageError.message = ''
     }
-    return this.message
+    return this.messageError
   }
 }

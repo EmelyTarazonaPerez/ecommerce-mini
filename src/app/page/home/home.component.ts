@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/products.model'
-import { DataService } from '../data.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +8,12 @@ import { DataService } from '../data.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private dataService: DataService) { }
 
   title = 'Mini ecommerce';
   product: Product[] = [];
   productsFiltros: Product[] = [];
+  today = new Date()
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getProduct().subscribe((data) => {
@@ -21,9 +22,9 @@ export class HomeComponent implements OnInit {
   }
 
   arreglo(data: any[]): void {
-    if(data.length > 0){
+    if (data.length > 0) {
       this.productsFiltros = this.product.filter(item => data.includes(item.filtro) || item.nombre.toLowerCase().includes(data[0].toLowerCase()))
-    } else{
+    } else {
       this.productsFiltros = []
     }
     console.log(data)

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ModeloCart } from 'src/app/models/cart.modelo';
 import { Product } from 'src/app/models/products.model';
-import { DataService } from 'src/app/page/data.service';
+import { DataCartService } from 'src/app/services/data-cart.service';
 
 @Component({
   selector: 'app-bottom-cart',
@@ -25,17 +25,13 @@ export class BottomCartComponent {
       idusuario: 1,
       idproducto: this.product[0].Id_producto
     }
-  };
-
-  constructor(private dataService: DataService) {
   }
 
-  ngOnInit() {}
+  constructor(private serviceDataCart: DataCartService) { }
 
   enviarACart() {
+    this.serviceDataCart.postCart(this.dataCart).subscribe(data =>  this.dataCart = data)
     alert('su producto ya fue enviado a carritos')
-    console.log(this.dataCart)
-    this.dataService.postCart(this.dataCart).subscribe(data => console.log(data))
   }
 
 }

@@ -10,7 +10,7 @@
   transform: translateX(-100%);
   transition: all ease-out .5s;
   padding: 10px;
-  align-items: end;
+  align-items: flex-end;
   &.active {
     transform: translateX(-50%);
   }

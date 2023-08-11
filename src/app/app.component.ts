@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Product } from './models/products.model'
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',

@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -8,17 +7,13 @@ import { elementAt } from 'rxjs';
 })
 export class SearchComponent {
 
-  search: any[] = []
-  @Output() EventSearch = new EventEmitter<any[]>()
+  search: string[] = []
+  @Output() EventSearch = new EventEmitter<string[]>()
 
-  guardarPalabrasEnArray(event: Event) {
-    /* proceso de guardado */
-    let element = event.target as HTMLInputElement;
+  saveWordsToArray(event: Event) {
+    const element = event.target as HTMLInputElement;
     if (this.search.length > 0) this.search.shift()
     this.search.push(element.value)
-    console.log(this.search)
-
-    /*guardar informacion en EventSearch*/
     this.EventSearch.emit(this.search)
   }
 

@@ -7,8 +7,8 @@ import { Category } from 'src/app/models/categories.model';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  @Input() title: string = ''
-  @Input() color: string = ''
+  @Input() title: string = '';
+  @Input() color: string = '';
   @Output() evento = new EventEmitter<any[]>();
 
   activeMenu = false
@@ -22,7 +22,7 @@ export class NavbarComponent {
   changeColorText() {
     return this.color
   }
-  toggeMenu(){
+  toggeMenu() {
     this.activeMenu = !this.activeMenu
   }
   verificar(item: string): void {

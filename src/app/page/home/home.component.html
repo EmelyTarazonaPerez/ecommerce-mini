@@ -1,5 +1,6 @@
 <app-navbar (evento)="arreglo($event)"></app-navbar>
 <div class="container">
+  <p class="mt-4">Todat: {{today | date}}</p>
   <app-search (EventSearch)="arreglo($event)"></app-search>
   <div *ngIf="productsFiltros.length===0" class="contenedor-grid">
     <app-product [product]="product" *ngFor="let product of product"></app-product>
