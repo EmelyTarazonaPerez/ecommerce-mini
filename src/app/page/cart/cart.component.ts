@@ -28,6 +28,17 @@ export class CartComponent implements OnInit {
     });
     return precioUnid
   }
+
+  deleteProductCart(id: any) {
+    console.log(typeof (id))
+    this.serviceDataCart.delete(id).subscribe(data => {
+      const productIndex = this.dataCart.findIndex(item => item.id === id)
+      this.dataCart.splice(productIndex, 1);
+      this.pagarMetodo()
+  })
+
+}
+
 }
 
 

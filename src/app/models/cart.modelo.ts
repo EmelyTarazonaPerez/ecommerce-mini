@@ -1,4 +1,5 @@
 export interface ModeloCart {
+  id?:string,
   imagen:string,
   nombre:string,
   precio:number,
