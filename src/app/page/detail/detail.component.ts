@@ -12,9 +12,9 @@ import { DataService } from '../../services/data.service';
 })
 
 export class DetailComponent implements OnInit {
-  product: Product[] = [];
+  product!: Product[];
   http = inject(HttpClient)
-  indice!: number;
+  indice!: string;
 
   constructor(
     private dataService: DataService,
@@ -23,8 +23,6 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.indice = this.route.snapshot.params['id']
-    this.dataService.getProduct().subscribe((data) => {
-      this.product = data.filter(item => item.Id_producto == this.indice);
-    })
+    this.dataService.getProductID(this.indice).subscribe(data => this.product = data)
   }
 }

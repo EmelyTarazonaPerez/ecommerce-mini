@@ -1,39 +1,27 @@
 <app-navbar></app-navbar>
-<div class="container mt-4">
+<div class="container mt-4 " style="text-align: -webkit-center;">
   <h1>Shoping to cart</h1>
-  <div class="row">
-    <div class="col-7">
-      <table class="table">
-        <thead class="table-dark">
-          <tr>
-            <th>Imagen</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Price/Und</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of dataCart; let i = index">
-            <td><img src="{{item.imagen}}" style="height: 100px;" alt="img"/></td>
-            <td>{{item.nombre}}</td>
-            <td>{{item.cantidad}}</td>
-            <td>{{item.precio}}</td>
-            <td>
-              <button type="button" class="btn-close me-4" disabled aria-label="Close"></button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-4">
-      <div class="bg-secondary-subtle p-4">
-        <h2>Factura</h2>
-        <hr>
-        <div class="row">
-          <p class="col-6">Total a pagar</p>
-          <p class="col-6">{{pagarMetodo() | currency}}</p>
+  <div *ngFor="let item of dataCart; let i = index" class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="item.imagen" class="img-fluid rounded-start" style="width:200px" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="font-weight: bold;">{{item.nombre}}</h5>
+          <p class="card-text">quantity {{item.cantidad}}</p>
+          <p class="card-text">{{item.precio | currency}}  </p>
+          <button type="button" class="btn btn-success" (click)="deleteProductCart(item.id)" >Delete</button>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="col-5">
+      <div class=" p-4">
+        <h2>Factura</h2>
+        <p>{{pagarMetodo() | currency}}</p>
         <button type="button" [disabled]="property" class="btn btn-dark" (click)="pagarMetodo()">Pay</button>
       </div>
     </div>
