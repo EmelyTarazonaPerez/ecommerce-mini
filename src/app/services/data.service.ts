@@ -2,7 +2,6 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Product } from "src/app/models/products.model";
-import { ModeloCart } from "../models/cart.modelo";
 import { User } from "../models/user.modelo";
 
 @Injectable({
@@ -15,7 +14,7 @@ export class DataService {
     return this.http.get<Product[]>('http://localhost:5000/api/v1/products')
   }
 
-  getUser():Observable<User[]>{
+  getUser(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:5000/api/v1/users')
   }
 

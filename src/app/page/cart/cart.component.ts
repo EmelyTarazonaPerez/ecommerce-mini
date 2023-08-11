@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModeloCart } from 'src/app/models/cart.modelo';
 import { DataCartService } from 'src/app/services/data-cart.service';
 
@@ -8,11 +8,11 @@ import { DataCartService } from 'src/app/services/data-cart.service';
   styleUrls: ['./cart.component.css']
 })
 
-export class CartComponent {
+export class CartComponent implements OnInit {
 
   property = 'false'
   dataCart!: ModeloCart[]
-  precioUnid: number = 0
+
   constructor(private serviceDataCart: DataCartService) { }
 
   ngOnInit() {
@@ -22,10 +22,11 @@ export class CartComponent {
   }
 
   pagarMetodo() {
+    let precioUnid = 0
     this.dataCart.forEach(element => {
-      this.precioUnid = this.precioUnid + element.cantidad * element.precio
+      precioUnid = precioUnid + element.cantidad * element.precio
     });
-    return this.precioUnid
+    return precioUnid
   }
 }
 

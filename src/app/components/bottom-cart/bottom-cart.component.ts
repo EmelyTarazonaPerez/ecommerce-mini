@@ -25,16 +25,13 @@ export class BottomCartComponent {
       idusuario: 1,
       idproducto: this.product[0].Id_producto
     }
-  };
+  }
 
   constructor(private serviceDataCart: DataCartService) { }
 
-  ngOnInit() {}
-
   enviarACart() {
+    this.serviceDataCart.postCart(this.dataCart).subscribe(data =>  this.dataCart = data)
     alert('su producto ya fue enviado a carritos')
-    console.log(this.dataCart)
-    this.serviceDataCart.postCart(this.dataCart).subscribe(data => console.log(data))
   }
 
 }

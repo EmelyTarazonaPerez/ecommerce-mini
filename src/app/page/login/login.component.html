@@ -1,13 +1,14 @@
 <app-navbar></app-navbar>
- <div class="container" style="display: flex; justify-content: center;">
+<div class="container" style="display: flex; justify-content: center;">
   <form (ngSubmit)="loginUser()" #myForm="ngForm" class="form">
     <h1 style="text-align: center;">Login</h1>
     <div class="input-group">
-      <input type="text" required name="gmail" id="gmail" [(ngModel)]="login[0].gmail" [ngStyle]="{'border': messageError.error}" />
+      <input type="text" required name="gmail" id="gmail" [(ngModel)]="login[0].gmail"
+        [ngStyle]="{'border': messageError.error}" />
       <label for="gmail" [ngStyle]="{'color': messageError.red}">Gmail</label>
     </div>
     <div class="input-group">
-      <input type="password"  required name="password" id="password" [(ngModel)]="login[0].password"
+      <input type="password" required name="password" id="password" [(ngModel)]="login[0].password"
         [ngStyle]="{'border': messageError.error }" />
       <label for="password" [ngStyle]="{'color': messageError.red}">Password</label>
     </div>

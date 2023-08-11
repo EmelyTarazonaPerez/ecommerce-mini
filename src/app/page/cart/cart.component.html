@@ -15,7 +15,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of dataCart; let i = index">
-            <td><img src="{{item.imagen}}" style="height: 100px;" /></td>
+            <td><img src="{{item.imagen}}" style="height: 100px;" alt="img"/></td>
             <td>{{item.nombre}}</td>
             <td>{{item.cantidad}}</td>
             <td>{{item.precio}}</td>
@@ -32,7 +32,7 @@
         <hr>
         <div class="row">
           <p class="col-6">Total a pagar</p>
-          <p class="col-6">$ {{precioUnid}}</p>
+          <p class="col-6">{{pagarMetodo() | currency}}</p>
         </div>
         <button type="button" [disabled]="property" class="btn btn-dark" (click)="pagarMetodo()">Pay</button>
       </div>

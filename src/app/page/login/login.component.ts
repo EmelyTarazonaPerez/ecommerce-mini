@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Subscriber } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.modelo';
 import { DataService } from '../../services/data.service';
 
@@ -8,7 +7,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   messageError = {
     red: '',
@@ -30,7 +29,7 @@ export class LoginComponent {
   }
 
   loginUser() {
-    let resp = this.dataLogin.filter(item => this.login.includes(item))
+    const resp = this.dataLogin.filter(item => this.login.includes(item))
     if (resp.length == 0) {
       this.messageError.message = 'Invalid user ID and password combination'
       this.messageError.error = '2px solid rgb(241, 98, 98)'

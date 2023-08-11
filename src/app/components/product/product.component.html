@@ -1,6 +1,6 @@
 <a [routerLink]="['/detail',product.Id_producto]" style="text-decoration: none; color: black;">
   <div class="container-card mt-4" style="text-align: center;">
-    <img class="card-img-top imagen-card" [src]="product.imagen" width="220px" height="220px">
+    <img class="card-img-top imagen-card" [src]="product.imagen" width="220px" height="220px" alt="mg"/>
     <div class="card-body">
       <h5 class="card-title">{{product.nombre}}</h5>
       <p class="card-text">{{product.precio | currency}}</p>

@@ -82,6 +82,6 @@ input:required:valid+label {
     align-self: center;
     border-radius: 25px;
     box-shadow: 27px 27px 53px #9d9d9d,
-    -27px -27px 53px #ffffff
+      -27px -27px 53px #ffffff
   }
 }

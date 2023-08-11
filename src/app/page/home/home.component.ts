@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/products.model'
 import { DataService } from '../../services/data.service';
 
@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
   }
 
   arreglo(data: any[]): void {
-    if(data.length > 0){
+    if (data.length > 0) {
       this.productsFiltros = this.product.filter(item => data.includes(item.filtro) || item.nombre.toLowerCase().includes(data[0].toLowerCase()))
-    } else{
+    } else {
       this.productsFiltros = []
     }
     console.log(data)
