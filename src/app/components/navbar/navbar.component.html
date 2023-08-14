@@ -4,11 +4,13 @@
       <div style="display: flex;">
         <button (click)='toggeMenu()' class="btn gb-dark toggle-menu"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 448 512"><style>svg{fill:#ffffff}</style><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></button>
         <h1 style="margin: 0px !important;">Mini ecommerce</h1>
+        <!--Checkbox-->
         <div class="form-check" *ngFor="let item of categories; let i = index ">
           <input type="checkbox" class="btn-check" id="btnchecks{{i+1}}" [value]="item.name"
-            (click)="verificar(item.name)" />
+            (click)="selectedProduct(item.name)" />
           <label style="color: white;" class="btn btn-outline-primary" for="btnchecks{{i+1}}">{{item.name}}</label>
         </div>
+        <!--End Checkbox-->
       </div>
     </a>
   </div>
@@ -16,7 +18,7 @@
 <div class="slide-menu" [class.active]="activeMenu">
   <button (click)='toggeMenu()' class="btn btn-success mb-4" style="width: max-content;">Cerrar</button>
   <div style="display: flex; width: 50%;" class="form-check mt-2" *ngFor="let item of categories; let i = index ">
-    <input type="checkbox" class="btn-check" id="btncheck{{i+1}}" [value]="item.name" (click)="verificar(item.name)" />
+    <input type="checkbox" class="btn-check" id="btncheck{{i+1}}" [value]="item.name" (click)="selectedProduct(item.name)" />
     <label style="color: white;" class="btn btn-outline-primary" for="btncheck{{i+1}}">{{item.name}}</label>
   </div>
 </div>

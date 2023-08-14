@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Category } from 'src/app/models/categories.model';
+import { Category } from 'src/app/models/product/categories.model';
 
 @Component({
   selector: 'app-navbar',
@@ -7,12 +7,12 @@ import { Category } from 'src/app/models/categories.model';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  @Input() title: string = '';
-  @Input() color: string = '';
-  @Output() evento = new EventEmitter<any[]>();
+  @Input() title = '';
+  @Input() color = '';
+  @Output() evento = new EventEmitter<string[]>();
 
   activeMenu = false
-  filtro: any[] = []
+  filtro: string[] = []
   categories: Category[] = [
     { id: 1, name: 'technology' },
     { id: 1, name: 'clothes' },
@@ -25,7 +25,8 @@ export class NavbarComponent {
   toggeMenu() {
     this.activeMenu = !this.activeMenu
   }
-  verificar(item: string): void {
+
+  selectedProduct(item: string): void {
     if (this.filtro.indexOf(item) === -1) {
       this.filtro.push(item)
     } else {
