@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
-<div class="container" style="display: flex; justify-content: center;">
+<div class="container contenedor-login" style="display: flex; justify-content: center;">
+  <img style="width: 50%; height: 50%;" src="../../../assets/imagenLogin.jpg" alt="login">
   <form (ngSubmit)="loginUser()" #myForm="ngForm" class="form">
-    <h1 style="text-align: center;">Login</h1>
+    <h1 style="text-align: center; font-size: 45px;">Login</h1>
     <div class="input-group">
       <input type="text" required name="gmail" id="gmail" [(ngModel)]="login[0].gmail"
         [ngStyle]="{'border': messageError.error}" />
