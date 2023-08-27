@@ -7,8 +7,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearchComponent {
 
-  search: string[] = []
-  @Output() EventSearch = new EventEmitter<string[]>()
+  search: any[] = []
+  @Output() EventSearch = new EventEmitter<any[]>()
 
   saveWordsToArray(event: Event) {
     const element = event.target as HTMLInputElement;

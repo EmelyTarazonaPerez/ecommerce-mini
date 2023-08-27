@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../models/products.model'
+import { Product } from '../../models/product/products.model'
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -16,18 +16,19 @@ export class HomeComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getProduct().subscribe((data) => {
+    this.dataService.get().subscribe((data) => {
       this.product = data;
     })
   }
 
-  arreglo(data: any[]): void {
+  leakedProducts(data: string[]): void {
     if (data.length > 0) {
-      this.productsFiltros = this.product.filter(item => data.includes(item.filtro) || item.nombre.toLowerCase().includes(data[0].toLowerCase()))
+      this.productsFiltros = this.product.filter(item =>
+        item.name.toLowerCase().includes(data[0].toLowerCase()) ||
+        data.includes(item.category.name))
     } else {
       this.productsFiltros = []
     }
-    console.log(data)
     this.productsFiltros
   }
 }

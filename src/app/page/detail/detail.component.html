@@ -1,25 +1,34 @@
 <app-navbar></app-navbar>
 <div class="container mt-4">
-  <div class="mb-3">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="{{product[0].imagen}}" class="img-fluid rounded-start" alt="..."/>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h1 class="card-title">{{product[0].nombre}}</h1>
-          <h2 class="card-text">$ {{product[0].precio}}</h2>
-          <p class="card-text">Available: {{product[0].cantidad}}</p>
-          <h3>Specifications</h3>
-          <ul class="list-group list-group-flush" style="width: 45%;">
-            <li class="list-group-item">Color: {{product[0].detalle.color}} </li>
-            <li class="list-group-item">Drand: {{product[0].detalle.drand}} </li>
-            <li class="list-group-item">Warranty {{product[0].detalle.warranty}}</li>
-          </ul>
-          <p>{{product[0].descripcion}}</p>
-          <app-bottom-cart [product]="product"></app-bottom-cart>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+  <div *ngIf="statusDetail === 'error'" else elseBlock>
+    <p>Producto no encontrado</p>
+  </div>
+  <!--Inicio contenedor de detalle bootstrap-->
+  <div #elseBlock>
+    <h1>Details Products</h1>
+    <div class=" mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{product.image}}" class="img-fluid rounded-start" alt="..." />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h1 class="card-title">{{product.name}}</h1>
+            <h2 class="card-text">{{product.price | currency}}</h2>
+            <p class="card-text">Available: {{product.quantity}}</p>
+            <h3>Specifications</h3>
+            <ul class="list-group list-group-flush" style="width: 45%;">
+              <li class="list-group-item">Color: {{product.detail.color}} </li>
+              <li class="list-group-item">Drand: {{product.detail.drand}} </li>
+              <li class="list-group-item">Warranty {{product.detail.warranty}}</li>
+            </ul>
+            <p>{{product.description}}</p>
+            <app-bottom-cart [product]="product"></app-bottom-cart>
+            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <!--Fin contenedor de detalle bootstrap-->
+</div>
