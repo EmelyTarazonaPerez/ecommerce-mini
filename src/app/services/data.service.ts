@@ -2,13 +2,14 @@ import { HttpClient, HttpErrorResponse, HttpStatusCode } from "@angular/common/h
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { Product } from "../../app/models/product/products.model";
-import { User } from "../models/user.modelo";
+import { User } from "../models/user.model";
 import { catchError } from "rxjs/operators"
 import { BaseModelClassApi } from "../models/class/class.model";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService implements BaseModelClassApi {
 
   private apiUrl = 'http://localhost:5000/api/v1/products'
@@ -32,9 +33,4 @@ export class DataService implements BaseModelClassApi {
         })
       )
   }
-
-  getUser(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:5000/api/v1/users')
-  }
-
 }

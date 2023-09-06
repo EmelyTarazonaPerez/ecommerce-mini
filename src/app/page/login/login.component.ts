@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user.modelo';
-import { DataService } from '../../services/data.service';
+import { Component } from '@angular/core';
+import { User } from '../../models/user.model';
+import { ServiceLogin } from '../../services/login.service';
+import { ServiceAuth } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+  formActive: boolean = false
+  token = ''
 
   messageError = {
     red: '',
@@ -15,28 +20,39 @@ export class LoginComponent implements OnInit {
     error: '',
   }
 
-  login: User[] = [{
+  dto: User[] = [{
+    name: '',
     gmail: '',
     password: ''
   }]
 
   dataLogin!: User[]
 
-  constructor(private dataService: DataService) { }
-
-  ngOnInit() {
-    this.dataService.getUser().subscribe(data => this.dataLogin = data)
-  }
+  constructor(private dataService: ServiceLogin, private authService: ServiceAuth) { }
 
   loginUser() {
-    const resp = this.dataLogin.filter(item => this.login.includes(item))
-    if (resp.length == 0) {
-      this.messageError.message = 'Invalid user ID and password combination'
-      this.messageError.error = '2px solid rgb(241, 98, 98)'
-      this.messageError.red = 'rgb(241, 98, 98)'
-    } else {
-      this.messageError.message = ''
-    }
-    return this.messageError
+    this.authService.loginAndGet(this.dto[0].gmail, this.dto[0].password).subscribe(
+      data => {
+        console.log(data)
+      }, error => {
+        console.log(error)
+        this.messageError.message = 'Invalid user ID and password combination';
+        this.messageError.error = '2px solid rgb(241, 98, 98)';
+        this.messageError.red = 'rgb(241, 98, 98)';
+      })
   }
+
+  activeForm() {
+    console.log(this.formActive)
+    return this.formActive = !this.formActive
+  }
+
+  createUser() {
+    this.dataService.createUser(this.dto[0]).subscribe(data =>
+      console.log(data)
+    )
+  }
+
+
+
 }

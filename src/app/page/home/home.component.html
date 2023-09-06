@@ -1,11 +1,17 @@
-<app-navbar (evento)="leakedProducts($event)"></app-navbar>
-<div class="container">
-  <p class="mt-4">Todat: {{today | date}}</p>
-  <app-search (EventSearch)="leakedProducts($event)"></app-search>
-  <div *ngIf="productsFiltros.length===0" class="contenedor-grid">
-    <app-product [product]="product" *ngFor="let product of product"></app-product>
+<main class="container" style="margin-top: 25px;">
+  <div style="display: flex;">
+    <aside style="width: 200px; margin-right: 25px;">
+      <app-search style="display: flex; justify-content: flex-end;" (EventSearch)="leakedProducts($event)"></app-search>
+      <app-checkbox (evento)="leakedProducts($event)"></app-checkbox>
+    </aside>
+    <section style="padding-left: 25px;">
+      <app-item-detail [productId]="productId"></app-item-detail>
+      <h1>{{title |uppercase}}</h1>
+      <hr>
+      <div class="contenedor-grid">
+        <app-product [product]="product" *ngFor="let product of product"></app-product>
+      </div>
+    </section>
   </div>
-  <div *ngIf="productsFiltros.length>0" class="contenedor-grid">
-    <app-product [product]="product" *ngFor="let product of productsFiltros"></app-product>
-  </div>
-</div>
+  <!--Block Details-->
+</main>

@@ -1,17 +1,14 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Category } from 'src/app/models/product/products.model';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-checkbox',
+  templateUrl: './checkbox.component.html',
+  styleUrls: ['./checkbox.component.css']
 })
-export class NavbarComponent {
-  @Input() title = '';
-  @Input() color = '';
+export class CheckboxComponent {
   @Output() evento = new EventEmitter<string[]>();
 
-  activeMenu = false
   filtro: string[] = []
   categories: Category[] = [
     { id: 1, name: 'technology' },
@@ -19,12 +16,6 @@ export class NavbarComponent {
     { id: 1, name: 'furniture' },
     { id: 1, name: 'accessories' }
   ]
-  changeColorText() {
-    return this.color
-  }
-  toggeMenu() {
-    this.activeMenu = !this.activeMenu
-  }
 
   selectedProduct(item: string): void {
     if (this.filtro.indexOf(item) === -1) {
@@ -34,5 +25,4 @@ export class NavbarComponent {
     }
     this.evento.emit(this.filtro)
   }
-
 }

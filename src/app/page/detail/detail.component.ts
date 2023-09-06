@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../models/product/products.model'
 import { DataService } from '../../services/data.service';
@@ -9,26 +9,32 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./detail.component.css']
 })
 
-export class DetailComponent implements OnInit {
-  product!: Product;
-  indice!: string;
-  statusDetail: "loading" | "error" | "init" | "succes" = "init"
+export class DetailComponent {
+
+  detail!: Product
+  arrayQuantity: number[] = []
+  showDomDetail  = true
+  // eslint-disable-next-line @angular-eslint/no-input-rename
 
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {
-    this.statusDetail = "loading"
-    this.indice = this.route.snapshot.params['id']
-    this.dataService.findOne(this.indice)
-    .subscribe(data => {
-        this.product = data
-        this.statusDetail = "succes"
+
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
+  ngOnInit(){
+    const indice = this.route.snapshot.params['id']
+    this.dataService.findOne(indice).subscribe(data => {
+        this.detail = data;
+        //code
+        for (let i = 1; i < this.detail.quantity + 1; i++) {
+          this.arrayQuantity.push(i)
+          console.log(i)
+        }
       }, error => {
         console.log(error)
-        this.statusDetail = "error"
       })
   }
+
 }

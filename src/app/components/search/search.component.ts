@@ -7,14 +7,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearchComponent {
 
-  search: any[] = []
+  search: string[] = []
   @Output() EventSearch = new EventEmitter<any[]>()
 
   saveWordsToArray(event: Event) {
     const element = event.target as HTMLInputElement;
-    if (this.search.length > 0) this.search.shift()
-    this.search.push(element.value)
-    this.EventSearch.emit(this.search)
+      this.search.shift()
+      this.search.push(element.value)
+      this.EventSearch.emit(this.search)
+
   }
 
 }

@@ -1,0 +1,30 @@
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
+<div *ngIf="showDomDetail" class="menu-detail" [class.active]="showDomDetail">
+  <div></div>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeDetail()">
+  </button>
+  <h1>{{detail.name}}</h1>
+  <div class="container-cover-detail">
+    <img src="{{detail.image}}"  alt="..." />
+  </div>
+  <div class="col-md-3">
+    <div class="card-body">
+      <h2 class="card-text">{{detail.price | currency}}</h2>
+      <p class="card-text">Available: {{detail.quantity}}</p>
+      <!--Detail pay-->
+      <aside>
+        <h4>Free returns</h4>
+        <p>Free delivery between September 7 - 14 on orders over $35</p>
+        <Form style="margin-bottom: 15px;">
+          <label style="margin-right:10px;">Quantity</label>
+          <select style="border-radius: 5px;">
+            <option *ngFor="let i of arrayQuantity">{{i}}</option>
+          </select>
+        </Form>
+        <app-bottom-cart></app-bottom-cart>
+        <button style="width: 100%; height: 46px; color: rgb(0, 0, 0);" class="btn mt-2">Buy now</button>
+        <p>Secure payments</p>
+      </aside>
+    </div>
+  </div>
+</div>

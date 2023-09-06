@@ -1,4 +1,10 @@
-
+.dom-details{
+  position: fixed;
+  top: 100px;
+  bottom: 0;
+  right: -5px;
+  background-color: #ffffff;
+}
 
 @media screen and (min-width:40em) and (max-width:63.9em) {
   .style-component-checkbox {

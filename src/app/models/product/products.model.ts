@@ -1,5 +1,9 @@
-import { Category } from "./categories.model";
 import { BaseModelProduct } from "./base.modelo";
+
+export interface Category {
+  id: number;
+  name: string;
+}
 
 export interface Product extends BaseModelProduct {
   description: string

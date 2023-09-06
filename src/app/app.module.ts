@@ -9,7 +9,7 @@ import { AboutComponent } from './page/about/about.component';
 import { DetailComponent } from './page/detail/detail.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BottomCartComponent } from './components/bottom-cart/bottom-cart.component';
 import { CartComponent } from './page/cart/cart.component';
@@ -17,13 +17,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './page/login/login.component';
 import { SearchComponent } from './components/search/search.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { TokenInterceptor } from './interceptor/token.interceptor';
+import { ItemDetailComponent } from './components/item-detail/item-detail.component';
+
 const appRoutes: Routes = [
 
-  { path: '', component: HomeComponent },
+  { path: 'Code-Marketplace', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'cart', component: CartComponent },
   { path: 'login', component:  LoginComponent},
-  { path: 'detail/:id', component: DetailComponent }
+  { path: 'detail-product/:id', component: DetailComponent },
 
 ];
 
@@ -39,7 +43,9 @@ const appRoutes: Routes = [
     BottomCartComponent,
     CartComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    CheckboxComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

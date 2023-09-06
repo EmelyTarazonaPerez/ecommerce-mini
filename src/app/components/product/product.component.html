@@ -1,9 +1,12 @@
-<a [routerLink]="['/detail',product.idproducto]" style="text-decoration: none; color: black;">
-  <div class="container-card mt-4" style="text-align: center;">
-    <img class="card-img-top imagen-card" [src]="product.image" width="220px" height="220px" alt="mg"/>
-    <div class="card-body">
-      <h5 class="card-title">{{product.name}}</h5>
-      <p class="card-text">{{product.price | currency}}</p>
+<div class="mt-4" style="text-align: center; border: 1px solid rgb(164, 163, 163);">
+  <a [routerLink]="['/detail-product',product.idproducto]">
+    <div class="container-cover">
+      <img class="card-img-top imagen-card" [src]="product.image" alt="mg" />
     </div>
-  </div>
-</a>
+  </a>
+  <section class="mt-4 pb-2 card-body">
+    <h6>{{product.name}}</h6>
+    <p class="card-text">{{product.price | currency}}</p>
+    <a class="card-text" routerLink='/Code-Marketplace' [queryParams]="{product: product.idproducto}" style="text-decoration: none; color: #000;">Show </a>
+  </section>
+</div>

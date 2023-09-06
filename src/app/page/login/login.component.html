@@ -1,22 +1,52 @@
-<app-navbar></app-navbar>
 <div class="container contenedor-login" style="display: flex; justify-content: center;">
   <img style="width: 50%; height: 50%;" src="../../../assets/imagenLogin.jpg" alt="login">
-  <form (ngSubmit)="loginUser()" #myForm="ngForm" class="form">
-    <h1 style="text-align: center; font-size: 45px;">Login</h1>
-    <div class="input-group">
-      <input type="text" required name="gmail" id="gmail" [(ngModel)]="login[0].gmail"
-        [ngStyle]="{'border': messageError.error}" />
-      <label for="gmail" [ngStyle]="{'color': messageError.red}">Gmail</label>
-    </div>
-    <div class="input-group">
-      <input type="password" required name="password" id="password" [(ngModel)]="login[0].password"
-        [ngStyle]="{'border': messageError.error }" />
-      <label for="password" [ngStyle]="{'color': messageError.red}">Password</label>
-    </div>
-    <p style="text-align: center;" [ngStyle]="{'color': messageError.red}">{{messageError.message}}</p>
-    <button class="btn btn btn-success" [disabled]="myForm.invalid" type="submit">Login</button>
-    <br>
-    <p class="mt-4">Fogert password?</p>
-    <button class="btn" type="submit">Sing up</button>
-  </form>
+
+  <div *ngIf="!formActive; else elseBlock">
+    <form (ngSubmit)="loginUser()" #myForm="ngForm" class="form formLogin">
+      <h1 style="text-align: center; font-size: 45px;">Login</h1>
+      <div class="input-group">
+        <input type="text" required name="gmail" id="gmail" [(ngModel)]="dto[0].gmail"
+          [ngStyle]="{'border': messageError.error}" />
+        <label for="gmail" [ngStyle]="{'color': messageError.red}">Gmail</label>
+      </div>
+      <div class="input-group">
+        <input type="password" required name="password" id="password" [(ngModel)]="dto[0].password"
+          [ngStyle]="{'border': messageError.error }" />
+        <label for="password" [ngStyle]="{'color': messageError.red}">Password</label>
+      </div>
+      <p style="text-align: center;" [ngStyle]="{'color': messageError.red}">{{messageError.message}}</p>
+      <button class="btn btn btn-success" [disabled]="myForm.invalid" type="submit">Login</button>
+      <br>
+      <p class="mt-4">Fogert password?</p>
+      <button class="btn" type="button" (click)="activeForm()">Sing up</button>
+    </form>
+  </div>
+
+  <ng-template #elseBlock>
+    <form (ngSubmit)="createUser()" #myForm="ngForm" class="form">
+      <h1 style="text-align: center; font-size: 45px;">User register</h1>
+      <div class="input-group">
+        <input type="text" required name="name" id="name" [(ngModel)]="dto[0].name"
+          [ngStyle]="{'border': messageError.error}" />
+        <label for="name" [ngStyle]="{'color': messageError.red}">Name</label>
+      </div>
+      <div class="input-group">
+        <input type="text" required name="gmail" id="gmail" [(ngModel)]="dto[0].gmail"
+          [ngStyle]="{'border': messageError.error}" />
+        <label for="gmail" [ngStyle]="{'color': messageError.red}">Gmail</label>
+      </div>
+      <div class="input-group">
+        <input type="password" required name="password" id="password" [(ngModel)]="dto[0].password"
+          [ngStyle]="{'border': messageError.error }" />
+        <label for="password" [ngStyle]="{'color': messageError.red}">Password</label>
+      </div>
+      <p style="text-align: center;" [ngStyle]="{'color': messageError.red}">{{messageError.message}}</p>
+      <button class="btn btn btn-success" [disabled]="myForm.invalid" type="submit">Sing up</button>
+      <br>
+      <p class="mt-4">Fogert password?</p>
+      <button class="btn" type="button" (click)="activeForm()">Login</button>
+    </form>
+  </ng-template>
+
+
 </div>

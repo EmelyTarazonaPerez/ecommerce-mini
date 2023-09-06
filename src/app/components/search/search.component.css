@@ -1,18 +1,13 @@
 
 
 input {
-  padding-left: 50px;
-  border-color: #0d6efd;
-  border: 2px solid #0d6efd;
+  padding-left: 20px;
+  border: 1px solid #b5b6b8;
 }
-.input-icon {
-  color: #191919;
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+
+::placeholder{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
 }
 
 @media screen and (min-width:52.9em) {
