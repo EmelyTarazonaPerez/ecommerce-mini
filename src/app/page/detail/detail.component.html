@@ -1,34 +1,50 @@
-<app-navbar></app-navbar>
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
 <div class="container mt-4">
-  <div *ngIf="statusDetail === 'error'" else elseBlock>
-    <p>Producto no encontrado</p>
-  </div>
   <!--Inicio contenedor de detalle bootstrap-->
-  <div #elseBlock>
-    <h1>Details Products</h1>
-    <div class=" mb-3">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="{{product.image}}" class="img-fluid rounded-start" alt="..." />
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h1 class="card-title">{{product.name}}</h1>
-            <h2 class="card-text">{{product.price | currency}}</h2>
-            <p class="card-text">Available: {{product.quantity}}</p>
-            <h3>Specifications</h3>
-            <ul class="list-group list-group-flush" style="width: 45%;">
-              <li class="list-group-item">Color: {{product.detail.color}} </li>
-              <li class="list-group-item">Drand: {{product.detail.drand}} </li>
-              <li class="list-group-item">Warranty {{product.detail.warranty}}</li>
-            </ul>
-            <p>{{product.description}}</p>
-            <app-bottom-cart [product]="product"></app-bottom-cart>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          </div>
+  <div class=" mb-3">
+    <h1>{{detail.name}}</h1>
+    <div class="row g-0">
+      <div class="col-md-7 container-cover" style="margin-right: 25px; height: 500px;">
+        <img src="{{detail.image}}" class="img-fluid rounded-start" alt="..." />
+      </div>
+      <div class="col-md-4">
+        <div class="card-body">
+          <h2 class="card-text">{{detail.price | currency}}</h2>
+          <p class="card-text">Available: {{detail.quantity}}</p>
+          <hr>
+          <!--Detail pay-->
+          <aside style="border-radius: 15px; border: 1px solid rgb(195, 193, 193); padding: 25px;">
+            <h4>Free returns</h4>
+            <p>Free delivery between September 7 - 14 on orders over $35</p>
+            <Form style="margin-bottom: 15px;">
+              <label style="margin-right:10px;" >Quantity</label>
+              <select style="border-radius: 5px;">
+                <option  *ngFor="let i of arrayQuantity">{{i}}</option>
+              </select>
+            </Form>
+            <app-bottom-cart [product]="detail"></app-bottom-cart>
+            <button style="width: 100%; height: 46px; color: rgb(0, 0, 0);"class="btn">Buy now</button>
+            <p>Secure payments</p>
+          </aside>
         </div>
       </div>
     </div>
   </div>
+
+
+
   <!--Fin contenedor de detalle bootstrap-->
+  <div style="display: flex;">
+    <p style="width: 60%;">{{detail.description}}</p>
+    <div style="width: 40%; padding-left: 35px;">
+      <h4>Specifications</h4>
+      <ul class="list-group list-group-flush" style="width: 45%;">
+        <li class="list-group-item">Color: {{detail.detail.color}} </li>
+        <li class="list-group-item">Drand: {{detail.detail.drand}} </li>
+        <li class="list-group-item">Warranty {{detail.detail.warranty}}</li>
+      </ul>
+    </div>
+
+  </div>
+  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
 </div>
