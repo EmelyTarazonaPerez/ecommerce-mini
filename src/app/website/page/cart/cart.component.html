@@ -1,0 +1,36 @@
+<div *ngIf="dataCart">
+  <div *ngIf="dataCart.length === 0; else elseBlock ">
+    <p>Aun no tienes productos</p>
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="container mt-4 " style="text-align: -webkit-center;">
+      <h1>Shoping to cart</h1>
+      <div *ngFor="let item of dataCart; let i = index" class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img [src]="item.imagen" class="img-fluid rounded-start" style="width:200px" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title" style="font-weight: bold;">{{item.name}}</h5>
+              <p class="card-text">quantity {{item.quantity}}</p>
+              <p class="card-text">{{item.price | currency}} </p>
+              <button type="button" class="btn btn-success" (click)="deleteProductCart(item.id)">Delete</button>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="col-5">
+          <div class=" p-4">
+            <h2>Factura</h2>
+            <p>{{pagarMetodo() | currency}}</p>
+            <button type="button" [disabled]="property" class="btn btn-dark" (click)="pagarMetodo()">Pay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

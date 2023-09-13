@@ -1,0 +1,12 @@
+<div class="mt-4" style="text-align: center; border: 1px solid rgb(164, 163, 163);">
+  <a [routerLink]="['/product',product.idproducto]">
+    <div class="container-cover">
+      <img class="card-img-top imagen-card" [src]="product.image" alt="mg" />
+    </div>
+  </a>
+  <section class="mt-4 pb-2 card-body">
+    <h6>{{product.name}}</h6>
+    <p class="card-text">{{product.price | currency}}</p>
+    <a class="card-text" routerLink='/Code-Marketplace' [queryParams]="{product: product.idproducto}" style="text-decoration: none; color: #000;">Show </a>
+  </section>
+</div>

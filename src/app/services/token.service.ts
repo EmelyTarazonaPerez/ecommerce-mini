@@ -1,4 +1,3 @@
-import { HttpClient, HttpErrorResponse, HttpStatusCode } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
 @Injectable({
@@ -7,9 +6,6 @@ import { Injectable } from "@angular/core";
 
 export class ServiceToken {
 
-   constructor(private http : HttpClient){
-   }
-
   saveToken(token: string){
     localStorage.setItem('token', token);
   }
@@ -17,6 +13,10 @@ export class ServiceToken {
   getToken(){
     const token = localStorage.getItem('token')
     return token;
+  }
+
+  removeToken(){
+    localStorage.removeItem('token')
   }
 }
 
