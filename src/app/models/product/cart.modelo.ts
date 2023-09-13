@@ -10,5 +10,7 @@ export interface getOrdersByUser {
   imagen: string,
   name: string,
   price: number,
-  quantity: number
+  quantity: number,
+  idusuario: number,
+  idproducto: number
 }
