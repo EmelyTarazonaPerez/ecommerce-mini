@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpStatusCode } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, throwError } from "rxjs";
-import { Product } from "../../app/models/product/products.model";
+import { Observable, throwError, retry } from "rxjs";
+import { Product } from "../models/product/products.model";
 import { User } from "../models/user.modelo";
 import { catchError } from "rxjs/operators"
 import { BaseModelClassApi } from "../models/class/class.model";
@@ -16,6 +16,9 @@ export class DataService implements BaseModelClassApi {
 
   get(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl)
+    .pipe(
+      retry(3)
+    )
   }
 
   findOne(id: Product['idproducto']) {

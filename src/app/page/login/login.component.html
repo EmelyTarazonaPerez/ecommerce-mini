@@ -1,21 +1,47 @@
 <app-navbar></app-navbar>
 <div class="container" style="display: flex; justify-content: center;">
-  <form (ngSubmit)="loginUser()" #myForm="ngForm" class="form">
-    <h1 style="text-align: center;">Login</h1>
-    <div class="input-group">
-      <input type="text" required name="gmail" id="gmail" [(ngModel)]="login[0].gmail"
-        [ngStyle]="{'border': messageError.error}" />
-      <label for="gmail" [ngStyle]="{'color': messageError.red}">Gmail</label>
-    </div>
-    <div class="input-group">
-      <input type="password" required name="password" id="password" [(ngModel)]="login[0].password"
-        [ngStyle]="{'border': messageError.error }" />
-      <label for="password" [ngStyle]="{'color': messageError.red}">Password</label>
-    </div>
-    <p style="text-align: center;" [ngStyle]="{'color': messageError.red}">{{messageError.message}}</p>
-    <button class="btn btn btn-success" [disabled]="myForm.invalid" type="submit">Login</button>
-    <br>
-    <p class="mt-4">Fogert password?</p>
-    <button class="btn" type="submit">Sing up</button>
-  </form>
+  <!--Seccion login-->
+    <form (ngSubmit)="loginUser()" #myForm="ngForm" class="form" *ngIf="ModuloResgistro === false">
+      <h1 style="text-align: center;">Login</h1>
+      <div class="input-group">
+        <input type="text" required name="gmail" id="gmail" [(ngModel)]="login[0].email"
+          [ngStyle]="{'border': messageError.error}" />
+        <label for="gmail" [ngStyle]="{'color': messageError.red}">Gmail</label>
+      </div>
+      <div class="input-group">
+        <input type="password" required name="password" id="password" [(ngModel)]="login[0].password"
+          [ngStyle]="{'border': messageError.error }" />
+        <label for="password" [ngStyle]="{'color': messageError.red}">Password</label>
+      </div>
+      <p style="text-align: center;" [ngStyle]="{'color': messageError.red}">{{messageError.message}}</p>
+      <button class="btn btn btn-success" [disabled]="myForm.invalid" type="submit">Login</button>
+      <br>
+      <button class="btn btn btn-outline-primary" (click)="ActiveDomResgistrar()" type="button">Sing up</button>
+    </form>
+  <!--Seccion login-->
+  <!--Seccion Registro-->
+    <form (ngSubmit)="createUser()" #myForm="ngForm" class="form" *ngIf="ModuloResgistro === true">
+      <h1 style="text-align: center;">Registro</h1>
+      <div class="input-group">
+        <input type="text" required name="name" id="name" [(ngModel)]="login[0].name"
+          [ngStyle]="{'border': messageError.error}" />
+        <label for="name" [ngStyle]="{'color': messageError.red}">Name</label>
+      </div>
+      <div class="input-group">
+        <input type="text" required name="gmail" id="gmail" [(ngModel)]="login[0].email"
+          [ngStyle]="{'border': messageError.error}" />
+        <label for="gmail" [ngStyle]="{'color': messageError.red}">Gmail</label>
+      </div>
+      <div class="input-group">
+        <input type="password" required name="password" id="password" [(ngModel)]="login[0].password"
+          [ngStyle]="{'border': messageError.error }" />
+        <label for="password" [ngStyle]="{'color': messageError.red}">Password</label>
+      </div>
+      <p style="text-align: center;" [ngStyle]="{'color': messageError.red}">{{messageError.message}}</p>
+      <button class="btn btn btn-outline-primary" type="submit">Sing up</button>
+      <br>
+      <button class="btn btn btn-success" [disabled]="true" (click)="ActiveDomResgistrar()" type="button">Login</button>
+    </form>
+  <!--Seccion Registro-->
+
 </div>

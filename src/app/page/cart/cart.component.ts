@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
     this.dataCart.forEach(element => {
       precioUnid = precioUnid + element.quantity * element.price
     });
-    return precioUnid
+    return precioUnid * 0.19 + precioUnid
   }
 
   deleteProductCart<idProductT>(id:idProductT) {

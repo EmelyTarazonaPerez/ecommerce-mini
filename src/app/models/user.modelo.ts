@@ -1,8 +1,10 @@
 export interface User {
-  id_usuario?: number,
+  id?: number,
   name?: string,
-  gmail: string,
+  email: string,
   password: string,
-  address?: string,
-  city?: string
 }
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface UserDTO extends Omit<User, 'id'>{}
+

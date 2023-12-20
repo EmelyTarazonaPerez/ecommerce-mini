@@ -1,13 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { ModeloCart } from '../models/product/cart.modelo';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { BaseModelClassApi } from "../models/class/class.model";
+import { Observable, BehaviorSubject, retry, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataCartService implements BaseModelClassApi {
+export class DataCartService {
 
   private apiUrl = 'http://localhost:5000/api/v1/cart'
   private myCart = new BehaviorSubject<ModeloCart[]>([]);
@@ -19,6 +18,15 @@ export class DataCartService implements BaseModelClassApi {
 
   get(): Observable<ModeloCart[]> {
     return this.http.get<ModeloCart[]>(this.apiUrl)
+    .pipe(
+      retry(3),
+      map(products => products.map(item => {
+        return {
+          ...item,
+          iva: .19 * item.price
+        }
+      }))
+    );
   }
 
   post<T>(producto: T): Observable<string> {
