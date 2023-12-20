@@ -6,11 +6,11 @@ export interface ModeloCart extends  BaseModelProduct{
 }
 
 export interface getOrdersByUser {
-  id: number,
+  id?: number,
   imagen: string,
   name: string,
   price: number,
   quantity: number,
-  idusuario: number,
-  idproducto: number
+  idusuario: number | undefined,
+  idproducto?: number
 }

@@ -25,28 +25,26 @@
   <ng-template #elseBlock>
     <form (ngSubmit)="createUser()" #myForm="ngForm" class="form">
       <h1 style="text-align: center; font-size: 45px;">User register</h1>
-      <div class="input-group">
+      <div class="input-group" style="margin: 14px 0px;">
         <input type="text" required name="name" id="name" [(ngModel)]="dto[0].name"
           [ngStyle]="{'border': messageError.error}" />
         <label for="name" [ngStyle]="{'color': messageError.red}">Name</label>
       </div>
-      <div class="input-group">
+      <div class="input-group" style="margin: 14px 0px;">
         <input type="text" required name="gmail" id="gmail" [(ngModel)]="dto[0].gmail"
           [ngStyle]="{'border': messageError.error}" />
         <label for="gmail" [ngStyle]="{'color': messageError.red}">Gmail</label>
       </div>
-      <div class="input-group">
+      <div class="input-group" style="margin: 14px 0px;">
         <input type="password" required name="password" id="password" [(ngModel)]="dto[0].password"
           [ngStyle]="{'border': messageError.error }" />
         <label for="password" [ngStyle]="{'color': messageError.red}">Password</label>
       </div>
       <p style="text-align: center;" [ngStyle]="{'color': messageError.red}">{{messageError.message}}</p>
       <button class="btn btn btn-success" [disabled]="myForm.invalid" type="submit">Sing up</button>
+      <p style="margin-top: 10px;  text-align: center; font-size: 12px; color: rgb(111, 228, 33);">{{message}}</p>
       <br>
-      <p class="mt-4">Fogert password?</p>
       <button class="btn" type="button" (click)="activeForm()">Login</button>
     </form>
   </ng-template>
-
-
 </div>

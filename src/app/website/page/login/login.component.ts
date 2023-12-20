@@ -16,6 +16,7 @@ export class LoginComponent {
   formActive: boolean = false
   messageError = { red: '', message: '', error: ''}
   dto: User[] = [{ name: '', gmail: '', password: '' }]
+  message : any;
 
   constructor(
     private dataService: ServiceLogin,
@@ -41,7 +42,7 @@ export class LoginComponent {
 
   createUser() {
     this.dataService.createUser(this.dto[0]).subscribe(data =>
-      console.log(data)
+      this.message = data,
     )
   }
 

@@ -1,0 +1,38 @@
+p {
+  font-size: 14px;
+}
+
+.btn-delete {
+  font-size: 14px;
+  margin-left: 25px;
+}
+
+.imagen-card {
+  align-items: center;
+}
+
+.box-factura {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.product-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box-noFound {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.img-noFound {
+  width: 300px;
+  border-radius: 15px;
+}

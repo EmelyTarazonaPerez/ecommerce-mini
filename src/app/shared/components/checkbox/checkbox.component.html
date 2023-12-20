@@ -2,7 +2,7 @@
 <h5 class="mt-4">Category</h5>
 <hr>
 <div *ngFor="let item of categories; let i = index ">
-  <div class="checkbox-wrapper-42" style="display: flex; align-items: center;">
+  <div class="checkbox-wrapper-42" style="display: flex;">
     <input type="checkbox" class="btn-check" id="btnchecks{{i+1}}" [value]="item.name"
       (click)="selectedProduct(item.name)" />
     <label class="cbx" for="cbx-42"></label>

@@ -12,9 +12,10 @@ export class ItemDetailComponent {
 
   // @Input() productId: string | null = null;
   @Input()
-  set productId(id: string | null) {
+  set productId(id: number | string | null) {
     if (id) {
       this.onShowDetail(id);
+      console.log(id)
     }
   }
 
@@ -27,7 +28,7 @@ export class ItemDetailComponent {
     private route: ActivatedRoute)
   { }
 
-  onShowDetail(idProduct: string) {
+  onShowDetail(idProduct: number | string) {
     if (!this.showDomDetail) {
       this.showDomDetail = true
     }

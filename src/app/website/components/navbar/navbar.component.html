@@ -14,7 +14,7 @@
       <div style="display: flex;">
         <img src="../../../assets/icono.jpg" alt="imagen"
           style="width: 50px; border-radius: 15px; margin-right: 10px;" />
-        <a class="text-light navbar-brand" routerLink="">
+        <a class="text-light navbar-brand" routerLink="/code-marketplace">
           <h2 style="margin: 0px !important; color: black;">Code Markeplace</h2>
         </a>
       </div>
@@ -22,7 +22,7 @@
         <div *ngIf="showProfile!== null; else elseBlock">
           <div style="width: 100%;">
           </div>
-          <button (click)="logout()" type="button">logout</button>
+          <button (click)="logout()" type="button" class="btn btn-warning">logout</button>
         </div>
         <ng-template #elseBlock>
           <a href="/login">

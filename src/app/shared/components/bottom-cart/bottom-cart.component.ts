@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { ModeloCart } from 'src/app/models/product/cart.modelo';
+import { Component, Input, OnInit } from '@angular/core';
+import { ModeloCart, getOrdersByUser } from 'src/app/models/product/cart.modelo';
 import { Product } from 'src/app/models/product/products.model';
+import { ServiceAuth } from 'src/app/services/auth.service';
 import { DataCartService } from 'src/app/services/data-cart.service';
 
 @Component({
@@ -10,29 +11,39 @@ import { DataCartService } from 'src/app/services/data-cart.service';
 })
 export class BottomCartComponent {
 
-  dataCart!: ModeloCart
+  dataCart!: getOrdersByUser
   product!: Product
+  idusuario!: number | undefined
+
+  constructor(private serviceDataCart: DataCartService, private getProfile: ServiceAuth) { }
+
+
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('product')
   set changeProduct(product: Product) {
     this.product = product
+    this.getProfile.$myProfile.subscribe(data => this.idusuario = data?.id_usuario)
     //code
     this.dataCart = {
-      image: this.product.image,
-      name: this.product.name,
-      price: this.product.price,
-      quantity: 1,
-      idusuario: 1,
-      idproducto: this.product.idproducto
+      "imagen": product.image,
+      "name": product.name,
+      "price": product.price,
+      "quantity": product.quantity,
+      "idusuario": this.idusuario,
+      "idproducto": product.idproducto
     }
   }
 
-  constructor(private serviceDataCart: DataCartService) { }
 
   enviarACart() {
-    this.serviceDataCart.post(this.dataCart).subscribe()
-    alert('su producto ya fue enviado a carritos')
+    if (this.idusuario) {
+      this.serviceDataCart.post(this.dataCart).subscribe((data => console.log(data)))
+      alert('su producto ya fue enviado a carritos')
+    }
+    else {
+      alert('No estas logeado')
+    }
   }
 
 }
