@@ -1,5 +1,5 @@
 export interface BaseModelProduct {
-  idproducto: string,
+  idproducto: number,
   name: string,
   price: number,
   image: string,

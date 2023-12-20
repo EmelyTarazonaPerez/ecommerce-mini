@@ -19,7 +19,7 @@ export class DataService implements BaseModelClassApi {
     return this.http.get<Product[]>(this.apiUrl)
   }
 
-  findOne(id: Product['idproducto']) {
+  findOne(id: number | string) {
     return this.http.get<Product>(`${this.apiUrl}/${id}`)
       .pipe(
         catchError((error: HttpErrorResponse) => {

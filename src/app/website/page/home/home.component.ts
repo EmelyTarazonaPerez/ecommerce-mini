@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   product: Product[] = [];
   productFiltrado: Product[] = [];
   showDomDetail = false;
-  productId: string | null = null;
+  productId: number | string | null = null;
 
   constructor(private dataService: DataService, private router: ActivatedRoute) { }
 

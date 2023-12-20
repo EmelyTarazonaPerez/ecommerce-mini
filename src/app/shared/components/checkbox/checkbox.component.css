@@ -1,3 +1,8 @@
+label {
+  font-size: 15px;
+  padding-left: 10px;
+}
+
 .checkbox-select:hover {
   background-color: rgb(206, 226, 219);
   cursor: pointer;

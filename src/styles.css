@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-.contenedor-grid{
+.contenedor-grid {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.container-cover{
+.container-cover {
   width: 220px;
   height: 220px;
 }
@@ -18,9 +18,9 @@
 
 
 @media screen and (min-width:40em) and (max-width:63.9em) {
-  .contenedor-grid{
+  .contenedor-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
     align-items: center;
 
@@ -28,9 +28,9 @@
 }
 
 @media screen and (min-width: 64em) {
-  .contenedor-grid{
+  .contenedor-grid {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     align-items: center;
 
@@ -42,9 +42,21 @@
 
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto Slab', serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
 a {
   text-decoration: none;
   color: black;
+}
+
+h6, p, a, label {
+  font-family: 'Poppins', sans-serif;
 }
