@@ -1,5 +1,4 @@
-[https://i.gifer.com/XOsX.mp4
-](https://i.gifer.com/XOsX.mp4)
+
 # Project description 
 Marketplace completo utilizando todas las herramientas que ofrece angular para el desarrollo web :star_struck: 
 
