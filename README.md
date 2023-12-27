@@ -13,11 +13,9 @@ https://sharing.clickup.com/clip/p/t9002026736/e01ef6a0-d531-48ce-907b-8e47bcad5
 6. Product detail and slide
 
 ## Design example
-- Page Home
-  ====
+- ### Page Home
     ![image](https://github.com/EmelyTarazonaPerez/mini-marketplace-with-angular/assets/122141594/cd551e00-2cb0-4fb8-9030-e19b9f8f4516)
 
-- Page Card
-  ====
+- ### Page Card
     ![image](https://github.com/EmelyTarazonaPerez/mini-marketplace-with-angular/assets/122141594/10d34694-dd92-43b7-b1ca-43250d43c6bb)
 
