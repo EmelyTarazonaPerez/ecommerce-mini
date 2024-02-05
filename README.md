@@ -5,7 +5,7 @@ Complete marketplace using all the tools that Angular offers for web development
 https://sharing.clickup.com/clip/p/t9002026736/e01ef6a0-d531-48ce-907b-8e47bcad5bde/screen-recording-2023-12-20-14:56.webm
 
 ## Use cases :watermelon:	:watermelon:	
-1. Login and logout.
+1. Login and logout
 2. Save product.
 3. Get product lists.
 4. Create user.
