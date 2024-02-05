@@ -7,7 +7,7 @@ https://sharing.clickup.com/clip/p/t9002026736/e01ef6a0-d531-48ce-907b-8e47bcad5
 ## Use cases :watermelon:	:watermelon:	
 1. Login and logout
 2. Save product.
-3. Get product lists.
+3. Get product lists
 4. Create user.
 5. Filter products
 6. Product detail and slide
