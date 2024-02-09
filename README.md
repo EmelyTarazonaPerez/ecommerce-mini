@@ -10,7 +10,7 @@ https://sharing.clickup.com/clip/p/t9002026736/e01ef6a0-d531-48ce-907b-8e47bcad5
 3. Get product lists
 4. Create user
 5. Filter products
-6. Product detail and slide.
+6. Product detail and slide
 
 ## Design example
 - ### Page Home
