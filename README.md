@@ -1,5 +1,5 @@
 # Project description 
-Complete marketplace using all the tools that Angular offers for web development :star_struck:
+Complete marketplace using all the tools that Angular offers for web development. :star_struck:
 
 ## Video presentation
 https://sharing.clickup.com/clip/p/t9002026736/e01ef6a0-d531-48ce-907b-8e47bcad5bde/screen-recording-2023-12-20-14:56.webm
